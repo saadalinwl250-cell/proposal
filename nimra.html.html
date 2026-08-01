@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>For My Nimra ❤️</title>
+<style>
+  body{margin:0;font-family:'Segoe UI';background:linear-gradient(135deg,#ff9a9e 0%,#fecfef 100%);display:flex;justify-content:center;align-items:center;min-height:100vh}
+  .box{background:white;padding:40px;border-radius:30px;box-shadow:0 20px 60px #0004;text-align:center;width:90%;max-width:400px}
+  h1{color:#e91e63}
+  input{padding:12px;border:2px solid #e91e63;border-radius:15px;width:80%;font-size:16px;text-align:center}
+  button{background:#e91e63;color:white;border:0;padding:12px 35px;border-radius:25px;font-size:17px;margin:10px;cursor:pointer;font-weight:bold}
+  .page{display:none} .page.active{display:block}
+  .dance{font-size:60px;animation:dance 1s infinite}
+  @keyframes dance{0%,100%{transform:rotate(-10deg)}50%{transform:rotate(10deg)}}
+  .hearts{position:fixed;font-size:30px;animation:fall 4s linear infinite;top:-50px}
+  @keyframes fall{to{transform:translateY(110vh)}}
+</style>
+</head>
+<body>
+
+<!-- PAGE 1: PASSWORD -->
+<div id="p1" class="page active">
+  <div class="box">
+    <h1>🔒 Secret Entry</h1>
+    <p>Nimra, password dalo</p>
+    <input id="pass" type="text" placeholder="Hint:apki jaan">
+    <br><button onclick="check()">Open ❤️</button>
+    <p id="wrong" style="color:red;display:none">Galat password!</p>
+  </div>
+</div>
+
+<!-- PAGE 2: BIRTHDAY -->
+<div id="p2" class="page">
+  <div class="box">
+    <h1>🎂 Happy Birthday Month My Queen 👑</h1>
+    <p>"apka ek pyar wala messag mera lia sukon ka bays ha janu<br>ap meri lado rani ho uknow mera baby, meri zindagi ho ap Nimra ❤️"</p>
+    <button onclick="show(3)">Next →</button>
+  </div>
+</div>
+
+<!-- PAGE 3: PROPOSAL -->
+<div id="p3" class="page">
+  <div class="box">
+    <h1>💍 Ek bt puchon...</h1>
+    <p style="font-size:20px">Kya ap mujhse shadi karogi?<br><b>Meri biwi banogi? 👑</b></p>
+    <button onclick="yes()">YES 😍</button>
+    <button onclick="no()">NO 😢</button>
+  </div>
+</div>
+
+<!-- PAGE 4: YES -->
+<div id="p4yes" class="page">
+  <div class="box">
+    <h1>YYYYEEESSS!!! 🎉</h1>
+    <div class="dance">💃🕺🎊</div>
+    <p>Love you so much ❤️</p>
+    <button onclick="show(5)">Contact Dekho →</button>
+  </div>
+</div>
+
+<!-- PAGE 4: NO -->
+<div id="p4no" class="page">
+  <div class="box">
+    <h1>😢</h1>
+    <p>Main wait karunga... ❤️</p>
+    <button onclick="show(5)">Contact Dekho →</button>
+  </div>
+</div>
+
+<!-- PAGE 5: CONTACT -->
+<div id="p5" class="page">
+  <div class="box">
+    <h1>📱 Mera Jawab Yahan Bhejna</h1>
+    <p style="font-size:22px;font-weight:bold;color:#e91e63">+92 344-7433988</p>
+    <p>WhatsApp pe "YES" ya "NO" bhej dena Nimra ❤️</p>
+  </div>
+</div>
+
+<script>
+let correctPass = "nimrasaad"; // PASSWORD YAHAN CHANGE KAR
+function show(n){
+  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+  document.getElementById('p'+n).classList.add('active');
+}
+function check(){
+  if(document.getElementById('pass').value == correctPass){
+    show(2);
+    for(let i=0;i<30;i++){let h=document.createElement('div');h.className='hearts';h.innerHTML='❤️';h.style.left=Math.random()*100+'%';h.style.animationDelay=Math.random()*3+'s';document.body.appendChild(h);}
+  } else {
+    document.getElementById('wrong').style.display='block';
+  }
+}
+function yes(){show('4yes');}
+function no(){show('4no');}
+</script>
+</body>
+</html>
